@@ -985,5 +985,956 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+        
+        // Extended database of plumbing products
+        const products = [
+            {
+                id: 1,
+                name: "Раковина Ceramica Lux",
+                category: "sinks",
+                brand: "Vitra",
+                price: 18499,
+                oldPrice: 21999,
+                description: "Современная керамическая раковина с интегрированным смесителем и системой против разбрызгивания",
+                rating: 4.5,
+                reviews: 24,
+                specs: {
+                    "Материал": "Высококачественная керамика",
+                    "Размер": "55×45 см",
+                    "Цвет": "Белый",
+                    "В комплекте": "Сифон, крепеж",
+                    "Гарантия": "5 лет",
+                    "Страна": "Италия"
+                },
+                badge: "Хит продаж",
+                icon: "fa-sink"
+            },
+            {
+                id: 2,
+                name: "Смеситель Grohe Eurosmart",
+                category: "taps",
+                brand: "Grohe",
+                price: 12490,
+                oldPrice: 14500,
+                description: "Однорычажный смеситель для кухни с выдвижной лейкой и аэратором для экономии воды",
+                rating: 4.8,
+                reviews: 42,
+                specs: {
+                    "Тип": "Однорычажный",
+                    "Отделка": "Хром",
+                    "Особенности": "Выдвижная лейка, аэратор",
+                    "Гарантия": "10 лет",
+                    "Расход воды": "5 л/мин"
+                },
+                badge: "Новинка",
+                icon: "fa-faucet"
+            },
+            {
+                id: 3,
+                name: "Умный унитаз Geberit",
+                category: "toilets",
+                brand: "Geberit",
+                price: 65990,
+                description: "Бесконтактный смыв, подогрев сиденья, биде-функция с регулировкой температуры и давления",
+                rating: 4.9,
+                reviews: 18,
+                specs: {
+                    "Тип": "Подвесной",
+                    "Функции": "Биде, сушка, подогрев",
+                    "Управление": "Сенсорная панель",
+                    "Гарантия": "7 лет",
+                    "Энергопотребление": "45 Вт"
+                },
+                badge: "Топ",
+                icon: "fa-toilet"
+            },
+            {
+                id: 4,
+                name: "Душевая система Hansgrohe",
+                category: "showers",
+                brand: "Hansgrohe",
+                price: 42990,
+                oldPrice: 48900,
+                description: "Душевая панель с тремя типами струй, термостатом и LED подсветкой для создания спа-атмосферы",
+                rating: 4.7,
+                reviews: 31,
+                specs: {
+                    "Типы струй": "Дождь, массаж, тропический дождь",
+                    "Размер": "120×80 см",
+                    "Материал": "Нержавеющая сталь",
+                    "Особенности": "Термостат, LED подсветка",
+                    "Давление": "2-5 бар"
+                },
+                badge: "Акция",
+                icon: "fa-shower"
+            },
+            {
+                id: 5,
+                name: "Набор аксессуаров Deluxe",
+                category: "accessories",
+                brand: "Jacob Delafon",
+                price: 18700,
+                description: "Премиальный комплект: держатель для полотенец, крючки, мыльница, стакан и держатель туалетной бумаги",
+                rating: 4.3,
+                reviews: 15,
+                specs: {
+                    "Отделка": "Матовый черный",
+                    "Материал": "Латунь",
+                    "В комплекте": "5 предметов",
+                    "Гарантия": "3 года",
+                    "Установка": "Скрытый монтаж"
+                },
+                badge: "Комплект",
+                icon: "fa-soap"
+            },
+            {
+                id: 6,
+                name: "Угловая раковина Minimal",
+                category: "sinks",
+                brand: "Jacob Delafon",
+                price: 23750,
+                description: "Практичная угловая раковина для небольших помещений с интегрированной столешницей",
+                rating: 4.6,
+                reviews: 19,
+                specs: {
+                    "Форма": "Угловая",
+                    "Размер": "50×50 см",
+                    "Материал": "Керамика",
+                    "Цвет": "Белый",
+                    "Монтаж": "Настенный"
+                },
+                badge: "Практично",
+                icon: "fa-sink"
+            },
+            {
+                id: 7,
+                name: "Смеситель для ванны Thermostatic",
+                category: "taps",
+                brand: "Hansgrohe",
+                price: 22300,
+                description: "Термостатический смеситель для ванны с душем и защитой от ожогов",
+                rating: 4.9,
+                reviews: 27,
+                specs: {
+                    "Тип": "Термостатический",
+                    "Отделка": "Хром",
+                    "Особенности": "Защита от ожогов, экономия воды",
+                    "Температура": "38°C по умолчанию",
+                    "Переключение": "Однорычажное"
+                },
+                badge: "Премиум",
+                icon: "fa-faucet"
+            },
+            {
+                id: 8,
+                name: "Подвесной унитаз Vitra Clean",
+                category: "toilets",
+                brand: "Vitra",
+                price: 35450,
+                oldPrice: 38900,
+                description: "Компактный подвесной унитаз с системой скрытого монтажа и безободковой технологией",
+                rating: 4.4,
+                reviews: 22,
+                specs: {
+                    "Смыв": "Двойной (3/6 л)",
+                    "Технология": "Безободковая",
+                    "Экономия воды": "до 30%",
+                    "Инсталляция": "В комплекте",
+                    "Высота": "40 см"
+                },
+                badge: "Эко",
+                icon: "fa-toilet"
+            },
+            {
+                id: 9,
+                name: "Гидромассажная ванна Spa",
+                category: "showers",
+                brand: "Jacob Delafon",
+                price: 125990,
+                description: "Угловая акриловая ванна с гидромассажем и подсветкой",
+                rating: 5.0,
+                reviews: 12,
+                specs: {
+                    "Размер": "170×170 см",
+                    "Форсунки": "24 гидрофорсунки",
+                    "Особенности": "Хромотерапия, озонирование",
+                    "Мощность": "1.5 кВт",
+                    "Объем": "350 л"
+                },
+                badge: "Люкс",
+                icon: "fa-bath"
+            },
+            {
+                id: 10,
+                name: "Смеситель для раковины Modern",
+                category: "taps",
+                brand: "Grohe",
+                price: 14990,
+                description: "Современный смеситель с сенсорным управлением и экономией воды",
+                rating: 4.7,
+                reviews: 28,
+                specs: {
+                    "Тип": "Сенсорный",
+                    "Отделка": "Хром",
+                    "Особенности": "Бесконтактное управление",
+                    "Экономия воды": "до 50%",
+                    "Гарантия": "5 лет"
+                },
+                badge: "Эко",
+                icon: "fa-faucet"
+            },
+            {
+                id: 11,
+                name: "Подвесная раковина Slim",
+                category: "sinks",
+                brand: "Vitra",
+                price: 28900,
+                oldPrice: 32500,
+                description: "Стильная подвесная раковина с минималистичным дизайном",
+                rating: 4.6,
+                reviews: 21,
+                specs: {
+                    "Форма": "Прямоугольная",
+                    "Размер": "60×45 см",
+                    "Материал": "Керамика",
+                    "Цвет": "Белый",
+                    "Монтаж": "Подвесной"
+                },
+                badge: "Хит",
+                icon: "fa-sink"
+            },
+            {
+                id: 12,
+                name: "Настенный смеситель для душа",
+                category: "taps",
+                brand: "Hansgrohe",
+                price: 18900,
+                description: "Настенный смеситель для душа с термостатом и ограничителем температуры",
+                rating: 4.8,
+                reviews: 34,
+                specs: {
+                    "Тип": "Термостатический",
+                    "Отделка": "Хром",
+                    "Особенности": "Защита от ожогов",
+                    "Температура": "38°C по умолчанию",
+                    "Переключение": "Рычажное"
+                },
+                badge: "Премиум",
+                icon: "fa-shower"
+            },
+            {
+                id: 13,
+                name: "Комплект душевых принадлежностей",
+                category: "accessories",
+                brand: "Geberit",
+                price: 8900,
+                description: "Комплект: держатель для душа, полка для шампуня, мыльница",
+                rating: 4.2,
+                reviews: 17,
+                specs: {
+                    "Отделка": "Хром",
+                    "Материал": "Нержавеющая сталь",
+                    "В комплекте": "3 предмета",
+                    "Гарантия": "2 года",
+                    "Установка": "Настенная"
+                },
+                icon: "fa-soap"
+            },
+            {
+                id: 14,
+                name: "Унитаз напольный Comfort",
+                category: "toilets",
+                brand: "Jacob Delafon",
+                price: 27900,
+                description: "Напольный унитаз с системой двойного смыва и мягким закрыванием сиденья",
+                rating: 4.5,
+                reviews: 19,
+                specs: {
+                    "Тип": "Напольный",
+                    "Смыв": "Двойной (4.5/3 л)",
+                    "Особенности": "Мягкое закрывание",
+                    "Гарантия": "5 лет",
+                    "Высота": "40 см"
+                },
+                badge: "Комфорт",
+                icon: "fa-toilet"
+            },
+            {
+                id: 15,
+                name: "Смеситель для кухни Professional",
+                category: "taps",
+                brand: "Grohe",
+                price: 23490,
+                oldPrice: 26900,
+                description: "Профессиональный смеситель для кухни с выдвижной лейкой и 3 режимами струи",
+                rating: 4.9,
+                reviews: 45,
+                specs: {
+                    "Тип": "Однорычажный",
+                    "Отделка": "Хром",
+                    "Особенности": "Выдвижная лейка, 3 режима",
+                    "Длина шланга": "1.5 м",
+                    "Гарантия": "10 лет"
+                },
+                badge: "Профи",
+                icon: "fa-faucet"
+            },
+            {
+                id: 16,
+                name: "Раковина на столешницу",
+                category: "sinks",
+                brand: "Vitra",
+                price: 31500,
+                description: "Раковина для установки в столешницу из искусственного камня",
+                rating: 4.7,
+                reviews: 23,
+                specs: {
+                    "Форма": "Овальная",
+                    "Размер": "55×50 см",
+                    "Материал": "Керамика",
+                    "Цвет": "Белый",
+                    "Тип установки": "В столешницу"
+                },
+                badge: "Дизайн",
+                icon: "fa-sink"
+            },
+            {
+                id: 17,
+                name: "Душевая лейка Luxury",
+                category: "showers",
+                brand: "Hansgrohe",
+                price: 15900,
+                description: "Большая душевая лейка с 3 режимами массажа и экономией воды",
+                rating: 4.8,
+                reviews: 31,
+                specs: {
+                    "Диаметр": "25 см",
+                    "Режимы": "3 вида струй",
+                    "Материал": "Латунь",
+                    "Особенности": "Экономия воды",
+                    "Давление": "1.5-5 бар"
+                },
+                icon: "fa-shower"
+            },
+            {
+                id: 18,
+                name: "Комплект для ванной Elegance",
+                category: "accessories",
+                brand: "Geberit",
+                price: 21500,
+                description: "Элегантный комплект: держатель полотенец, крючки, держатель туалетной бумаги",
+                rating: 4.6,
+                reviews: 22,
+                specs: {
+                    "Отделка": "Золото",
+                    "Материал": "Латунь",
+                    "В комплекте": "4 предмета",
+                    "Гарантия": "5 лет",
+                    "Установка": "Скрытый монтаж"
+                },
+                badge: "Премиум",
+                icon: "fa-soap"
+            },
+            {
+                id: 19,
+                name: "Биде Smart",
+                category: "toilets",
+                brand: "Geberit",
+                price: 42900,
+                description: "Умное биде с подогревом сиденья и пультом управления",
+                rating: 4.9,
+                reviews: 27,
+                specs: {
+                    "Функции": "Биде, сушка, подогрев",
+                    "Управление": "Пульт ДУ",
+                    "Энергопотребление": "60 Вт",
+                    "Гарантия": "5 лет",
+                    "Размеры": "52×36 см"
+                },
+                badge: "Smart",
+                icon: "fa-toilet"
+            },
+            {
+                id: 20,
+                name: "Угловая душевая кабина",
+                category: "showers",
+                brand: "Jacob Delafon",
+                price: 89900,
+                description: "Угловая душевая кабина с гидромассажем и парообразователем",
+                rating: 4.7,
+                reviews: 18,
+                specs: {
+                    "Размер": "100×100 см",
+                    "Функции": "Гидромассаж, пар",
+                    "Особенности": "Хромотерапия, радио",
+                    "Мощность": "2.2 кВт",
+                    "Гарантия": "3 года"
+                },
+                badge: "Spa",
+                icon: "fa-shower"
+            }
+        ];
+
+        // Cart state
+        let cart = [];
+        let currentProduct = null;
+        let currentPage = 1;
+        const productsPerPage = 6;
+        let filteredProducts = [];
+        
+        // DOM Elements
+        const productsContainer = document.getElementById('productsContainer');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const overlay = document.getElementById('overlay');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const applyFiltersBtn = document.getElementById('applyFilters');
+        const productModal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalAddToCart = document.getElementById('modalAddToCart');
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortProducts');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        const priceRange = document.getElementById('priceRange');
+        const itemsCount = document.getElementById('itemsCount');
+        const subtotal = document.getElementById('subtotal');
+        const productsCount = document.getElementById('productsCount');
+        const wishlistIcon = document.getElementById('wishlistIcon');
+        const wishlistCount = document.getElementById('wishlistCount');
+        const paginationContainer = document.getElementById('pagination');
+        
+        // Initialize the app
+        function init() {
+            filteredProducts = [...products];
+            applyFilters();
+            setupEventListeners();
+            updateCartCount();
+        }
+        
+        // Set up event listeners
+        function setupEventListeners() {
+            cartIcon.addEventListener('click', toggleCart);
+            closeCart.addEventListener('click', toggleCart);
+            overlay.addEventListener('click', closeAllModals);
+            applyFiltersBtn.addEventListener('click', applyFilters);
+            closeModal.addEventListener('click', closeAllModals);
+            modalAddToCart.addEventListener('click', addCurrentToCart);
+            searchInput.addEventListener('input', applyFilters);
+            sortSelect.addEventListener('change', applyFilters);
+            resetFiltersBtn.addEventListener('click', resetFilters);
+            priceRange.addEventListener('input', applyFilters);
+            wishlistIcon.addEventListener('click', toggleWishlist);
+        }
+        
+        // Render products to the page
+        function renderProducts(productsToRender) {
+            productsContainer.innerHTML = '';
+            
+            if (productsToRender.length === 0) {
+                productsContainer.innerHTML = '<p class="no-results">Товары не найдены. Попробуйте изменить фильтры.</p>';
+                return;
+            }
+            
+            // Calculate pagination
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = Math.min(startIndex + productsPerPage, productsToRender.length);
+            const paginatedProducts = productsToRender.slice(startIndex, endIndex);
+            
+            productsCount.textContent = `(${productsToRender.length})`;
+            
+            paginatedProducts.forEach(product => {
+                const productEl = document.createElement('div');
+                productEl.className = 'product';
+                
+                if (product.badge) {
+                    productEl.innerHTML += `<div class="product-badge">${product.badge}</div>`;
+                }
+                
+                productEl.innerHTML += `
+                    <div class="product-image">
+                        <i class="fas ${product.icon} fa-4x"></i>
+                        <div class="product-actions">
+                            <div class="action-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="action-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                        </div>
+                        <div class="quick-view" data-id="${product.id}">Быстрый просмотр</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${getCategoryName(product.category)}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-brand">
+                            <i class="fas fa-certificate"></i> ${product.brand}
+                        </div>
+                        <p class="product-description">${product.description}</p>
+                        
+                        <div class="rating">
+                            ${renderStars(product.rating)}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="product-price">
+                                ${formatPrice(product.price)}
+                                ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                            </div>
+                            <button class="add-to-cart" data-id="${product.id}">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productEl);
+            });
+            
+            // Add event listeners to Add to Cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+            
+            // Add event listeners to Quick View buttons
+            document.querySelectorAll('.quick-view').forEach(button => {
+                button.addEventListener('click', showProductModal);
+            });
+            
+            // Render pagination
+            renderPagination(productsToRender.length);
+        }
+        
+        // Render pagination
+        function renderPagination(totalProducts) {
+            const totalPages = Math.ceil(totalProducts / productsPerPage);
+            paginationContainer.innerHTML = '';
+            
+            // Previous button
+            const prevButton = document.createElement('button');
+            prevButton.className = 'page-btn';
+            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderProducts(filteredProducts);
+                }
+            });
+            paginationContainer.appendChild(prevButton);
+            
+            // Page buttons
+            const maxButtons = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+            let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+            
+            // Adjust if we're at the end
+            if (endPage - startPage + 1 < maxButtons) {
+                startPage = Math.max(1, endPage - maxButtons + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.className = 'page-btn';
+                if (i === currentPage) {
+                    pageButton.classList.add('active');
+                }
+                pageButton.textContent = i;
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    renderProducts(filteredProducts);
+                });
+                paginationContainer.appendChild(pageButton);
+            }
+            
+            // Next button
+            const nextButton = document.createElement('button');
+            nextButton.className = 'page-btn';
+            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderProducts(filteredProducts);
+                }
+            });
+            paginationContainer.appendChild(nextButton);
+        }
+        
+        // Render star rating
+        function renderStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (halfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+        
+        // Apply filters to products
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const maxPrice = parseInt(priceRange.value);
+            const sortValue = sortSelect.value;
+            
+            // Reset to first page when filters change
+            currentPage = 1;
+            
+            // Get selected categories
+            const selectedCategories = [];
+            document.querySelectorAll('input[name="category"]:checked').forEach(checkbox => {
+                selectedCategories.push(checkbox.value);
+            });
+            
+            // Get selected brands
+            const selectedBrands = [];
+            document.querySelectorAll('input[name="brand"]:checked').forEach(checkbox => {
+                selectedBrands.push(checkbox.value);
+            });
+            
+            // Get selected rating
+            let minRating = 0;
+            document.querySelectorAll('input[name="rating"]:checked').forEach(checkbox => {
+                const rating = parseInt(checkbox.value);
+                if (rating > minRating) minRating = rating;
+            });
+            
+            // Filter products
+            filteredProducts = products.filter(product => {
+                // Search filter
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
+                                     product.description.toLowerCase().includes(searchTerm);
+                
+                // Category filter
+                const matchesCategory = selectedCategories.length === 0 || 
+                                       selectedCategories.includes(product.category);
+                
+                // Brand filter
+                const matchesBrand = selectedBrands.length === 0 || 
+                                    selectedBrands.includes(product.brand.toLowerCase());
+                
+                // Price filter
+                const matchesPrice = product.price <= maxPrice;
+                
+                // Rating filter
+                const matchesRating = product.rating >= minRating;
+                
+                return matchesSearch && matchesCategory && matchesBrand && matchesPrice && matchesRating;
+            });
+            
+            // Sort products
+            if (sortValue === 'price_asc') {
+                filteredProducts.sort((a, b) => a.price - b.price);
+            } else if (sortValue === 'price_desc') {
+                filteredProducts.sort((a, b) => b.price - a.price);
+            } else if (sortValue === 'rating') {
+                filteredProducts.sort((a, b) => b.rating - a.rating);
+            }
+            
+            renderProducts(filteredProducts);
+        }
+        
+        // Reset all filters
+        function resetFilters() {
+            // Reset checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            
+            // Reset price range
+            priceRange.value = 50000;
+            
+            // Reset search
+            searchInput.value = '';
+            
+            // Reset sort
+            sortSelect.value = 'default';
+            
+            applyFilters();
+        }
+        
+        // Add product to cart
+        function addToCart(e) {
+            const productId = parseInt(e.target.closest('.add-to-cart').dataset.id);
+            const product = products.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    icon: product.icon
+                });
+            }
+            
+            updateCartCount();
+            renderCartItems();
+            
+            // Show cart if it's hidden
+            if (!cartSidebar.classList.contains('active')) {
+                toggleCart();
+            }
+            
+            // Show confirmation
+            const button = e.target.closest('.add-to-cart');
+            const originalHTML = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-check"></i>';
+            button.style.background = 'var(--success)';
+            
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.style.background = '';
+            }, 1500);
+        }
+        
+        // Show product modal
+        function showProductModal(e) {
+            const productId = parseInt(e.target.dataset.id);
+            currentProduct = products.find(p => p.id === productId);
+            
+            if (!currentProduct) return;
+            
+            // Fill modal with product data
+            document.getElementById('modalCategory').textContent = getCategoryName(currentProduct.category);
+            document.getElementById('modalTitle').textContent = currentProduct.name;
+            document.getElementById('modalBrand').textContent = currentProduct.brand;
+            document.getElementById('modalPrice').textContent = formatPrice(currentProduct.price);
+            document.getElementById('modalDescription').textContent = currentProduct.description;
+            document.getElementById('modalReviews').textContent = `${currentProduct.reviews} отзыва`;
+            document.getElementById('modalStars').innerHTML = renderStars(currentProduct.rating);
+            
+            // Set product icon
+            const modalImage = document.getElementById('modalImage');
+            modalImage.className = `modal-image fas ${currentProduct.icon} fa-5x`;
+            
+            // Render specifications
+            const specsGrid = document.getElementById('specsGrid');
+            specsGrid.innerHTML = '';
+            
+            for (const [key, value] of Object.entries(currentProduct.specs)) {
+                const specItem = document.createElement('div');
+                specItem.className = 'spec-item';
+                specItem.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span><strong>${key}:</strong> ${value}</span>
+                `;
+                specsGrid.appendChild(specItem);
+            }
+            
+            // Show modal and overlay
+            productModal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Add current product to cart from modal
+        function addCurrentToCart() {
+            if (!currentProduct) return;
+            
+            const existingItem = cart.find(item => item.id === currentProduct.id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    quantity: 1,
+                    icon: currentProduct.icon
+                });
+            }
+            
+            updateCartCount();
+            renderCartItems();
+            closeAllModals();
+            
+            // Show cart if it's hidden
+            if (!cartSidebar.classList.contains('active')) {
+                toggleCart();
+            }
+        }
+        
+        // Update cart count
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Render cart items
+        function renderCartItems() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Ваша корзина пуста</p>';
+                cartTotal.textContent = '0 ₽';
+                itemsCount.textContent = '0';
+                subtotal.textContent = '0 ₽';
+                return;
+            }
+            
+            let total = 0;
+            let items = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                items += item.quantity;
+                
+                const cartItemEl = document.createElement('div');
+                cartItemEl.className = 'cart-item';
+                cartItemEl.innerHTML = `
+                    <div class="cart-item-image">
+                        <i class="fas ${item.icon} fa-3x"></i>
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-header">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="remove-item" data-id="${item.id}">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                        <div class="cart-item-actions">
+                            <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                    </div>
+                `;
+                
+                cartItems.appendChild(cartItemEl);
+            });
+            
+            // Update counts and totals
+            itemsCount.textContent = items;
+            subtotal.textContent = formatPrice(total);
+            cartTotal.textContent = formatPrice(total);
+            
+            // Add event listeners to cart item buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', decreaseQuantity);
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', increaseQuantity);
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', removeFromCart);
+            });
+        }
+        
+        // Increase item quantity
+        function increaseQuantity(e) {
+            const productId = parseInt(e.target.closest('button').dataset.id);
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity++;
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+        
+        // Decrease item quantity
+        function decreaseQuantity(e) {
+            const productId = parseInt(e.target.closest('button').dataset.id);
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity--;
+                } else {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+                
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+        
+        // Remove item from cart
+        function removeFromCart(e) {
+            const productId = parseInt(e.target.closest('.remove-item').dataset.id);
+            cart = cart.filter(item => item.id !== productId);
+            
+            updateCartCount();
+            renderCartItems();
+        }
+        
+        // Toggle cart visibility
+        function toggleCart() {
+            cartSidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        }
+        
+        // Toggle wishlist
+        function toggleWishlist() {
+            alert('Переход в избранное');
+        }
+        
+        // Close all modals
+        function closeAllModals() {
+            cartSidebar.classList.remove('active');
+            productModal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Helper function to format price
+        function formatPrice(price) {
+            return new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'RUB',
+                maximumFractionDigits: 0
+            }).format(price);
+        }
+        
+        // Helper function to get category name
+        function getCategoryName(category) {
+            const categories = {
+                sinks: 'Раковины',
+                taps: 'Смесители',
+                toilets: 'Унитазы',
+                showers: 'Душ и ванны',
+                accessories: 'Аксессуары'
+            };
+            
+            return categories[category] || category;
+        }
+        
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    
+    </script>
 </body>
 </html>
