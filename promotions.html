@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акции | AquaElite - Премиум сантехника</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c6fbb;
+            --secondary: #3aafa9;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #1e2a38;
+            --dark-alt: #15202b;
+            --gray: #5d7186;
+            --light-gray: #dfe6e9;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f5ff 0%, #e8f0ff 100%);
+            color: var(--dark);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark-alt), var(--dark));
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            font-size: 2.2rem;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-item {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
+        }
+        
+        .search-bar {
+            display: flex;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            padding: 8px 15px;
+            width: 300px;
+            transition: var(--transition);
+        }
+        
+        .search-bar:focus-within {
+            background: rgba(255, 255, 255, 0.25);
+            width: 350px;
+        }
+        
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            width: 100%;
+            padding: 0 10px;
+        }
+        
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-bar button {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .action-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .action-btn i {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .action-btn:hover {
+            color: var(--secondary);
+        }
+        
+        .cart-count, .wishlist-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        /* Hero Banner */
+        .promo-hero {
+            height: 400px;
+            background: linear-gradient(90deg, var(--dark) 0%, var(--primary) 100%);
+            border-radius: var(--radius);
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .promo-hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .promo-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .promo-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .promo-hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            top: -150px;
+            right: -100px;
+        }
+        
+        .promo-hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        /* Promo Section */
+        .promo-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .promo-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .promo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .promo-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .promo-image {
+            height: 220px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .promo-image i {
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        .promo-content {
+            padding: 25px;
+        }
+        
+        .promo-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .promo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .promo-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .promo-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .promo-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .promo-old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-left: 5px;
+        }
+        
+        .promo-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .promo-btn:hover {
+            background: linear-gradient(135deg, #2b9994, #255fa3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(58, 175, 169, 0.3);
+        }
+        
+        /* Special Offers */
+        .special-offers {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .offers-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .offers-title i {
+            color: var(--accent);
+        }
+        
+        .offer-item {
+            display: flex;
+            gap: 30px;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .offer-item:last-child {
+            border-bottom: none;
+        }
+        
+        .offer-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .offer-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .offer-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .offer-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .offer-link:hover {
+            color: var(--secondary);
+            gap: 12px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .promo-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .promo-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .promo-hero {
+                height: 350px;
+            }
+            
+            .promo-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .offer-item {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .search-bar {
+                width: 200px;
+            }
+            
+            .search-bar:focus-within {
+                width: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo span {
+                font-size: 1.5rem;
+            }
+            
+            .search-bar {
+                display: none;
+            }
+            
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .promo-hero {
+                height: 300px;
+            }
+            
+            .promo-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .action-btn span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-faucet"></i>
+                <span>AquaElite</span>
+            </div>
+            
+            <div class="nav-container">
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-item">Главная</a>
+                    <a href="catalog.html" class="nav-item">Каталог</a>
+                    <a href="brands.html" class="nav-item">Бренды</a>
+                    <a href="promotions.html" class="nav-item active">Акции</a>
+                    <a href="delivery.html" class="nav-item">Доставка</a>
+                    <a href="contacts.html" class="nav-item">Контакты</a>
+                </nav>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Поиск сантехники...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="action-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Профиль</span>
+                    </div>
+                    <div class="action-btn">
+                        <i class="fas fa-heart"></i>
+                        <span class="wishlist-count">3</span>
+                        <span>Избранное</span>
+                    </div>
+                    <div class="action-btn cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">5</span>
+                        <span>Корзина</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Banner -->
+    <div class="container">
+        <div class="promo-hero">
+            <div class="promo-hero-content">
+                <h1>Специальные предложения и акции</h1>
+                <p>Скидки до 50% на премиальную сантехнику от ведущих мировых брендов</p>
+                <button class="promo-btn">
+                    <i class="fas fa-fire"></i> Все акции
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Promo Section -->
+    <div class="container">
+        <section class="promo-section">
+            <div class="section-title">
+                <h2>Текущие акции</h2>
+                <p>Выгодные предложения на премиальную сантехнику с ограниченным сроком действия</p>
+            </div>
+            
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-badge">-30%</div>
+                    <div class="promo-image" style="background: linear-gradient(135deg, #fff5f5 0%, #ffecec 100%);">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <div class="promo-content">
+                        <div class="promo-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>До 15 декабря 2023</span>
+                        </div>
+                        <h3 class="promo-title">Скидка на ванны Jacob Delafon</h3>
+                        <p class="promo-description">Специальное предложение на коллекцию ванн премиум-класса. Успейте приобрести по выгодной цене!</p>
+                        <div class="promo-footer">
+                            <div class="promo-price">
+                                от 45 990 ₽
+                                <span class="promo-old-price">65 700 ₽</span>
+                            </div>
+                            <button class="promo-btn">
+                                <i class="fas fa-shopping-cart"></i> Купить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-badge">Хит</div>
+                    <div class="promo-image" style="background: linear-gradient(135deg, #f5fff9 0%, #ecfff0 100%);">
+                        <i class="fas fa-faucet"></i>
+                    </div>
+                    <div class="promo-content">
+                        <div class="promo-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>До 31 декабря 2023</span>
+                        </div>
+                        <h3 class="promo-title">Смесители Grohe со скидкой 25%</h3>
+                        <p class="promo-description">Только до конца года скидка на все смесители серии Eurosmart. Гарантия 10 лет от производителя.</p>
+                        <div class="promo-footer">
+                            <div class="promo-price">
+                                от 9 367 ₽
+                                <span class="promo-old-price">12 490 ₽</span>
+                            </div>
+                            <button class="promo-btn">
+                                <i class="fas fa-shopping-cart"></i> Купить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-badge">Комплект</div>
+                    <div class="promo-image" style="background: linear-gradient(135deg, #f5f7ff 0%, #ecefff 100%);">
+                        <i class="fas fa-toilet"></i>
+                    </div>
+                    <div class="promo-content">
+                        <div class="promo-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>Бессрочная акция</span>
+                        </div>
+                        <h3 class="promo-title">Комплект "Ванная комната"</h3>
+                        <p class="promo-description">Соберите свою идеальную ванную комнату со скидкой до 40%. Выбирайте из 15 готовых решений.</p>
+                        <div class="promo-footer">
+                            <div class="promo-price">
+                                от 89 990 ₽
+                                <span class="promo-old-price">149 990 ₽</span>
+                            </div>
+                            <button class="promo-btn">
+                                <i class="fas fa-shopping-cart"></i> Купить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-badge">-15%</div>
+                    <div class="promo-image" style="background: linear-gradient(135deg, #fffbf5 0%, #fff5ec 100%);">
+                        <i class="fas fa-shower"></i>
+                    </div>
+                    <div class="promo-content">
+                        <div class="promo-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>До 10 января 2024</span>
+                        </div>
+                        <h3 class="promo-title">Душевые системы Hansgrohe</h3>
+                        <p class="promo-description">Скидка на все душевые системы премиум-класса с функцией термостата и экономии воды.</p>
+                        <div class="promo-footer">
+                            <div class="promo-price">
+                                от 36 540 ₽
+                                <span class="promo-old-price">42 990 ₽</span>
+                            </div>
+                            <button class="promo-btn">
+                                <i class="fas fa-shopping-cart"></i> Купить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-badge">Подарок</div>
+                    <div class="promo-image" style="background: linear-gradient(135deg, #f9f5ff 0%, #f0ecff 100%);">
+                        <i class="fas fa-sink"></i>
+                    </div>
+                    <div class="promo-content">
+                        <div class="promo-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>До 31 января 2024</span>
+                        </div>
+                        <h3 class="promo-title">Раковина + смеситель в подарок</h3>
+                        <p class="promo-description">При покупке раковины Vitra получите фирменный смеситель в подарок. Ограниченное предложение.</p>
+                        <div class="promo-footer">
+                            <div class="promo-price">
+                                от 31 500 ₽
+                            </div>
+                            <button class="promo-btn">
+                                <i class="fas fa-shopping-cart"></i> Купить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-badge">-20%</div>
+                    <div class="promo-image" style="background: linear-gradient(135deg, #f5fdff 0%, #ecf9ff 100%);">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <div class="promo-content">
+                        <div class="promo-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>До 28 февраля 2024</span>
+                        </div>
+                        <h3 class="promo-title">Гидромассажные ванны</h3>
+                        <p class="promo-description">Специальная цена на гидромассажные ванны с хромотерапией и функцией озонирования воды.</p>
+                        <div class="promo-footer">
+                            <div class="promo-price">
+                                от 100 792 ₽
+                                <span class="promo-old-price">125 990 ₽</span>
+                            </div>
+                            <button class="promo-btn">
+                                <i class="fas fa-shopping-cart"></i> Купить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Special Offers -->
+        <section class="special-offers">
+            <h2 class="offers-title">
+                <i class="fas fa-percentage"></i> Специальные условия
+            </h2>
+            
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="offer-content">
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 15 000 рублей мы доставим вашу сантехнику бесплатно по всей России. Для Москвы и области - бесплатная доставка при заказе от 10 000 рублей.</p>
+                    <a href="delivery.html" class="offer-link">
+                        Подробнее <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <i class="fas fa-installation"></i>
+                </div>
+                <div class="offer-content">
+                    <h3>Бесплатный монтаж</h3>
+                    <p>При покупке сантехники на сумму от 50 000 рублей наши специалисты бесплатно установят ее. Акция действует для Москвы и Московской области.</p>
+                    <a href="delivery.html#installation" class="offer-link">
+                        Условия акции <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="offer-content">
+                    <h3>Программа лояльности</h3>
+                    <p>Станьте участником программы AquaElite Premium и получайте дополнительные скидки, персональные предложения и привилегии.</p>
+                    <a href="#" class="offer-link">
+                        Присоединиться <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="offer-content">
+                    <h3>Специальные условия для дизайнеров</h3>
+                    <p>Для дизайнеров интерьеров и архитекторов мы предлагаем специальные цены и дополнительные услуги по проектированию санузлов.</p>
+                    <a href="contacts.html" class="offer-link">
+                        Связаться с нами <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>AquaElite</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 20px;">
+                        Мы предлагаем премиальную сантехнику для вашего дома от ведущих мировых производителей. Качество, стиль и надежность в каждой детали.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Раковины</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Смесители</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Унитазы</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Ванны</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Душевые кабины</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Аксессуары</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Доставка и оплата</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Гарантия</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Возврат товара</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Вопросы и ответы</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Статьи и советы</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>г. Москва, ул. Сантехническая, 15</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+7 (495) 123-45-67</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>info@aquaelite.ru</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-18:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 AquaElite. Все права защищены.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
