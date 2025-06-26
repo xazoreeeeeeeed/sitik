@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaElite - Бренды премиальной сантехники</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-faucet"></i>
+                <span>AquaElite</span>
+            </div>
+            
+            <div class="nav-container">
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-item">Главная</a>
+                    <a href="#" class="nav-item">Каталог</a>
+                    <a href="brands.html" class="nav-item active">Бренды</a>
+                    <a href="#" class="nav-item">Акции</a>
+                    <a href="#" class="nav-item">Доставка</a>
+                    <a href="#" class="nav-item">Контакты</a>
+                </nav>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Поиск сантехники...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="action-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Профиль</span>
+                    </div>
+                    <div class="action-btn" id="wishlistIcon">
+                        <i class="fas fa-heart"></i>
+                        <span class="wishlist-count" id="wishlistCount">3</span>
+                        <span>Избранное</span>
+                    </div>
+                    <div class="action-btn cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">5</span>
+                        <span>Корзина</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Brands Hero Section -->
+    <div class="container">
+        <div class="page-hero">
+            <div class="hero-content">
+                <h1>Ведущие бренды сантехники</h1>
+                <p>Мы сотрудничаем только с проверенными мировыми производителями премиальной сантехники</p>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-crown"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brands Content -->
+    <div class="container">
+        <main class="brands-main">
+            <!-- Brands Filter -->
+            <aside class="brands-filter">
+                <div class="filter-section">
+                    <h3><i class="fas fa-filter"></i> Фильтр брендов</h3>
+                    <div class="filter-options">
+                        <div class="search-filter">
+                            <input type="text" id="brandSearch" placeholder="Поиск бренда...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Страна производитель</h4>
+                            <label class="filter-option">
+                                <input type="checkbox" name="country" value="germany" checked> Германия
+                                <span class="count">(4)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="country" value="italy" checked> Италия
+                                <span class="count">(3)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="country" value="france" checked> Франция
+                                <span class="count">(2)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="country" value="switzerland" checked> Швейцария
+                                <span class="count">(1)</span>
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Категории</h4>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="taps" checked> Смесители
+                                <span class="count">(8)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="sinks" checked> Раковины
+                                <span class="count">(7)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="toilets" checked> Унитазы
+                                <span class="count">(6)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="showers" checked> Душевые системы
+                                <span class="count">(5)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="brands-features">
+                    <h3><i class="fas fa-medal"></i> Преимущества</h3>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Официальная гарантия от производителя</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Сертифицированная продукция</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Оригинальные запчасти</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Профессиональный монтаж</p>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Brands Listing -->
+            <section class="brands-listing">
+                <div class="sort-options">
+                    <span>Сортировать:</span>
+                    <select id="sortBrands">
+                        <option value="popular">По популярности</option>
+                        <option value="name_asc">По названию (А-Я)</option>
+                        <option value="name_desc">По названию (Я-А)</option>
+                        <option value="newest">Сначала новые</option>
+                    </select>
+                </div>
+                
+                <div class="brands-grid" id="brandsContainer">
+                    <!-- Brand cards will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Brands Description Section -->
+    <div class="container">
+        <section class="brands-description">
+            <h2><i class="fas fa-star"></i> Почему выбирают премиальные бренды?</h2>
+            <div class="description-content">
+                <div class="description-text">
+                    <p>Сантехника премиальных брендов - это не просто функциональные элементы для вашего дома, а произведения инженерного искусства, сочетающие в себе инновационные технологии, безупречное качество материалов и эстетически совершенный дизайн.</p>
+                    <p>Мы тщательно отбираем бренды для нашего каталога, сотрудничая только с признанными лидерами отрасли. Каждый производитель в нашем ассортименте имеет многолетнюю историю, запатентованные технологии и безупречную репутацию на мировом рынке.</p>
+                    <p>Выбирая продукцию премиальных брендов, вы инвестируете в долговечность, комфорт и статус вашего интерьера. Такая сантехника не просто служит десятилетиями - она становится неотъемлемой частью вашего жизненного пространства.</p>
+                </div>
+                <div class="description-image">
+                    <i class="fas fa-award"></i>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>AquaElite</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 20px;">
+                        Мы предлагаем премиальную сантехнику для вашего дома от ведущих мировых производителей. Качество, стиль и надежность в каждой детали.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Раковины</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Смесители</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Унитазы</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Ванны</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Душевые кабины</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Аксессуары</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Доставка и оплата</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Гарантия</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Возврат товара</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Вопросы и ответы</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Статьи и советы</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>г. Москва, ул. Сантехническая, 15</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+7 (495) 123-45-67</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>info@aquaelite.ru</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-18:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 AquaElite. Все права защищены.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Cart Sidebar (same as index.html) -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Ваша корзина</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="promo-section">
+                <input type="text" class="promo-input" placeholder="Промокод">
+                <button class="apply-promo">Применить</button>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Товары (<span id="itemsCount">0</span>)</span>
+                    <span id="subtotal">0 ₽</span>
+                </div>
+                <div class="summary-row">
+                    <span>Скидка</span>
+                    <span class="discount">-0 ₽</span>
+                </div>
+                <div class="summary-row">
+                    <span>Доставка</span>
+                    <span>Бесплатно</span>
+                </div>
+            </div>
+            
+            <div class="summary-row cart-total">
+                <span>Итого:</span>
+                <span id="cartTotal">0 ₽</span>
+            </div>
+            
+            <button class="checkout-btn">
+                <i class="fas fa-credit-card"></i> Оформить заказ
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Brands data
+        const brands = [
+            {
+                id: 1,
+                name: "Grohe",
+                logo: "fa-water",
+                country: "germany",
+                categories: ["taps", "showers", "sinks"],
+                description: "Немецкий лидер в производстве смесителей и душевых систем. Инновационные технологии и безупречное качество.",
+                year: 1936,
+                products: 42,
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Hansgrohe",
+                logo: "fa-shower",
+                country: "germany",
+                categories: ["taps", "showers"],
+                description: "Пионер в разработке душевых систем. Элегантный дизайн и экологичные решения.",
+                year: 1901,
+                products: 38,
+                featured: true
+            },
+            {
+                id: 3,
+                name: "Jacob Delafon",
+                logo: "fa-bath",
+                country: "france",
+                categories: ["sinks", "toilets", "showers"],
+                description: "Французская роскошь и изысканность. Уникальные дизайнерские решения для ванных комнат.",
+                year: 1889,
+                products: 35,
+                featured: true
+            },
+            {
+                id: 4,
+                name: "Vitra",
+                logo: "fa-toilet",
+                country: "turkey",
+                categories: ["toilets", "sinks"],
+                description: "Современный дизайн и передовые технологии производства сантехники.",
+                year: 1972,
+                products: 28,
+                featured: false
+            },
+            {
+                id: 5,
+                name: "Geberit",
+                logo: "fa-toolbox",
+                country: "switzerland",
+                categories: ["toilets", "showers"],
+                description: "Швейцарское качество и инженерное совершенство. Лидер в системах скрытого монтажа.",
+                year: 1874,
+                products: 31,
+                featured: true
+            },
+            {
+                id: 6,
+                name: "Laufen",
+                logo: "fa-sink",
+                country: "switzerland",
+                categories: ["sinks", "toilets"],
+                description: "Швейцарский бренд с более чем 100-летней историей. Безупречное качество керамики.",
+                year: 1892,
+                products: 25,
+                featured: false
+            },
+            {
+                id: 7,
+                name: "Duravit",
+                logo: "fa-bath",
+                country: "germany",
+                categories: ["toilets", "sinks", "showers"],
+                description: "Немецкий производитель сантехники премиум-класса. Совместные проекты с ведущими дизайнерами.",
+                year: 1817,
+                products: 40,
+                featured: true
+            },
+            {
+                id: 8,
+                name: "Roca",
+                logo: "fa-toilet-paper",
+                country: "spain",
+                categories: ["taps", "sinks", "toilets"],
+                description: "Испанский бренд с мировым именем. Оптимальное сочетание цены и качества.",
+                year: 1917,
+                products: 36,
+                featured: false
+            },
+            {
+                id: 9,
+                name: "Villeroy & Boch",
+                logo: "fa-spa",
+                country: "germany",
+                categories: ["sinks", "toilets", "showers"],
+                description: "Немецкий бренд с 250-летней историей. Исключительное внимание к деталям.",
+                year: 1748,
+                products: 29,
+                featured: true
+            },
+            {
+                id: 10,
+                name: "Kaldewei",
+                logo: "fa-bath",
+                country: "germany",
+                categories: ["showers"],
+                description: "Специализируется на производстве стальных эмалированных ванн премиум-класса.",
+                year: 1918,
+                products: 18,
+                featured: false
+            }
+        ];
+
+        // Cart state (same as index.html)
+        let cart = [];
+        
+        // DOM Elements
+        const brandsContainer = document.getElementById('brandsContainer');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const overlay = document.getElementById('overlay');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const itemsCount = document.getElementById('itemsCount');
+        const subtotal = document.getElementById('subtotal');
+        const wishlistIcon = document.getElementById('wishlistIcon');
+        const wishlistCount = document.getElementById('wishlistCount');
+        const brandSearch = document.getElementById('brandSearch');
+        const sortSelect = document.getElementById('sortBrands');
+        
+        // Initialize the page
+        function init() {
+            renderBrands(brands);
+            setupEventListeners();
+            updateCartCount();
+        }
+        
+        // Set up event listeners
+        function setupEventListeners() {
+            cartIcon.addEventListener('click', toggleCart);
+            closeCart.addEventListener('click', toggleCart);
+            overlay.addEventListener('click', closeAllModals);
+            brandSearch.addEventListener('input', filterBrands);
+            sortSelect.addEventListener('change', sortBrands);
+            wishlistIcon.addEventListener('click', toggleWishlist);
+            
+            // Filter checkboxes
+            document.querySelectorAll('input[name="country"], input[name="category"]').forEach(checkbox => {
+                checkbox.addEventListener('change', filterBrands);
+            });
+        }
+        
+        // Render brands to the page
+        function renderBrands(brandsToRender) {
+            brandsContainer.innerHTML = '';
+            
+            if (brandsToRender.length === 0) {
+                brandsContainer.innerHTML = '<p class="no-results">Бренды не найдены. Попробуйте изменить фильтры.</p>';
+                return;
+            }
+            
+            brandsToRender.forEach(brand => {
+                const brandEl = document.createElement('div');
+                brandEl.className = 'brand-card';
+                if (brand.featured) brandEl.classList.add('featured');
+                
+                brandEl.innerHTML = `
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <i class="fas ${brand.logo} fa-3x"></i>
+                        </div>
+                        <div class="brand-meta">
+                            <span class="country-flag">
+                                <i class="fas fa-flag"></i> ${getCountryName(brand.country)}
+                            </span>
+                            <span class="brand-year">
+                                <i class="fas fa-history"></i> Основан в ${brand.year}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-title">${brand.name}</h3>
+                        <p class="brand-description">${brand.description}</p>
+                        <div class="brand-categories">
+                            ${renderBrandCategories(brand.categories)}
+                        </div>
+                    </div>
+                    <div class="brand-footer">
+                        <span class="products-count">
+                            <i class="fas fa-box-open"></i> ${brand.products} товаров
+                        </span>
+                        <button class="view-brand" data-id="${brand.id}">
+                            <i class="fas fa-arrow-right"></i> Смотреть товары
+                        </button>
+                    </div>
+                `;
+                
+                brandsContainer.appendChild(brandEl);
+            });
+            
+            // Add event listeners to brand buttons
+            document.querySelectorAll('.view-brand').forEach(button => {
+                button.addEventListener('click', viewBrandProducts);
+            });
+        }
+        
+        // Render brand categories
+        function renderBrandCategories(categories) {
+            const categoryNames = {
+                taps: 'Смесители',
+                sinks: 'Раковины',
+                toilets: 'Унитазы',
+                showers: 'Душевые системы'
+            };
+            
+            return categories.map(cat => 
+                `<span class="category-badge">${categoryNames[cat]}</span>`
+            ).join('');
+        }
+        
+        // Filter brands based on search and filters
+        function filterBrands() {
+            const searchTerm = brandSearch.value.toLowerCase();
+            const sortValue = sortSelect.value;
+            
+            // Get selected countries
+            const selectedCountries = [];
+            document.querySelectorAll('input[name="country"]:checked').forEach(checkbox => {
+                selectedCountries.push(checkbox.value);
+            });
+            
+            // Get selected categories
+            const selectedCategories = [];
+            document.querySelectorAll('input[name="category"]:checked').forEach(checkbox => {
+                selectedCategories.push(checkbox.value);
+            });
+            
+            // Filter brands
+            let filtered = brands.filter(brand => {
+                // Search filter
+                const matchesSearch = brand.name.toLowerCase().includes(searchTerm) || 
+                                     brand.description.toLowerCase().includes(searchTerm);
+                
+                // Country filter
+                const matchesCountry = selectedCountries.length === 0 || 
+                                      selectedCountries.includes(brand.country);
+                
+                // Category filter
+                const matchesCategory = selectedCategories.length === 0 || 
+                                       selectedCategories.some(cat => brand.categories.includes(cat));
+                
+                return matchesSearch && matchesCountry && matchesCategory;
+            });
+            
+            // Sort brands
+            sortBrands(filtered, sortValue);
+        }
+        
+        // Sort brands
+        function sortBrands(brandsToSort, sortValue = null) {
+            if (!sortValue) sortValue = sortSelect.value;
+            
+            let sorted = [...brandsToSort];
+            
+            switch(sortValue) {
+                case 'name_asc':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name_desc':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'newest':
+                    sorted.sort((a, b) => b.year - a.year);
+                    break;
+                case 'popular':
+                default:
+                    sorted.sort((a, b) => {
+                        // Featured first, then by product count
+                        if (a.featured && !b.featured) return -1;
+                        if (!a.featured && b.featured) return 1;
+                        return b.products - a.products;
+                    });
+            }
+            
+            renderBrands(sorted);
+        }
+        
+        // View brand products
+        function viewBrandProducts(e) {
+            const brandId = parseInt(e.target.closest('button').dataset.id);
+            alert(`Переход к товарам бренда с ID: ${brandId}`);
+            // In a real app, this would redirect to a filtered product page
+            // window.location.href = `products.html?brand=${brandId}`;
+        }
+        
+        // Toggle cart visibility
+        function toggleCart() {
+            cartSidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+            renderCartItems();
+        }
+        
+        // Toggle wishlist
+        function toggleWishlist() {
+            alert('Переход в избранное');
+        }
+        
+        // Close all modals
+        function closeAllModals() {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+        
+        // Update cart count
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Render cart items (same as index.html)
+        function renderCartItems() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Ваша корзина пуста</p>';
+                cartTotal.textContent = '0 ₽';
+                itemsCount.textContent = '0';
+                subtotal.textContent = '0 ₽';
+                return;
+            }
+            
+            let total = 0;
+            let items = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                items += item.quantity;
+                
+                const cartItemEl = document.createElement('div');
+                cartItemEl.className = 'cart-item';
+                cartItemEl.innerHTML = `
+                    <div class="cart-item-image">
+                        <i class="fas ${item.icon} fa-3x"></i>
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-header">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="remove-item" data-id="${item.id}">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                        <div class="cart-item-actions">
+                            <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                    </div>
+                `;
+                
+                cartItems.appendChild(cartItemEl);
+            });
+            
+            // Update counts and totals
+            itemsCount.textContent = items;
+            subtotal.textContent = formatPrice(total);
+            cartTotal.textContent = formatPrice(total);
+            
+            // Add event listeners to cart item buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', decreaseQuantity);
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', increaseQuantity);
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', removeFromCart);
+            });
+        }
+        
+        // Helper function to format price
+        function formatPrice(price) {
+            return new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'RUB',
+                maximumFractionDigits: 0
+            }).format(price);
+        }
+        
+        // Helper function to get country name
+        function getCountryName(countryCode) {
+            const countries = {
+                germany: 'Германия',
+                france: 'Франция',
+                switzerland: 'Швейцария',
+                turkey: 'Турция',
+                spain: 'Испания'
+            };
+            
+            return countries[countryCode] || countryCode;
+        }
+        
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+    
+    <style>
+        /* Additional styles for brands page */
+        .page-hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            margin: 20px 0;
+            color: white;
+        }
+        
+        .page-hero .hero-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+        
+        .page-hero .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .page-hero .hero-image {
+            padding: 0 40px;
+        }
+        
+        .page-hero .hero-image i {
+            font-size: 6rem;
+            opacity: 0.2;
+        }
+        
+        .brands-main {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .brands-filter {
+            flex: 0 0 280px;
+        }
+        
+        .brands-listing {
+            flex: 1;
+        }
+        
+        .filter-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .filter-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+        
+        .filter-section h3 i {
+            color: var(--primary);
+        }
+        
+        .search-filter {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-filter input {
+            width: 100%;
+            padding: 10px 15px 10px 35px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .search-filter i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        
+        .filter-group h4 {
+            margin: 15px 0 10px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .filter-option {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        
+        .filter-option input {
+            margin-right: 10px;
+        }
+        
+        .filter-option .count {
+            margin-left: auto;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .brands-features {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .brands-features h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+        
+        .brands-features h3 i {
+            color: var(--primary);
+        }
+        
+        .feature-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        
+        .feature-card i {
+            color: var(--success);
+            margin-top: 3px;
+        }
+        
+        .feature-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .sort-options {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .sort-options select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .brand-card.featured {
+            border-left: 4px solid var(--primary);
+        }
+        
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: var(--primary);
+        }
+        
+        .brand-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .brand-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .brand-meta i {
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+        
+        .brand-content {
+            padding: 20px;
+        }
+        
+        .brand-title {
+            margin: 0 0 10px 0;
+            color: var(--dark);
+        }
+        
+        .brand-description {
+            margin: 0 0 15px 0;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .brand-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .category-badge {
+            background: #f0f0f0;
+            color: #555;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+        
+        .brand-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .products-count {
+            font-size: 0.8rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .products-count i {
+            color: var(--primary);
+        }
+        
+        .view-brand {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+        
+        .view-brand:hover {
+            background: var(--primary-dark);
+        }
+        
+        .brands-description {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .brands-description h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+        
+        .brands-description h2 i {
+            color: var(--primary);
+        }
+        
+        .description-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .description-text {
+            flex: 1;
+        }
+        
+        .description-text p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .description-image {
+            flex: 0 0 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .description-image i {
+            font-size: 8rem;
+            color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            grid-column: 1 / -1;
+        }
+        
+        @media (max-width: 992px) {
+            .brands-main {
+                flex-direction: column;
+            }
+            
+            .brands-filter {
+                flex: 1;
+            }
+            
+            .description-content {
+                flex-direction: column;
+            }
+            
+            .description-image {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            
+            .page-hero .hero-content {
+                padding: 0;
+                margin-bottom: 30px;
+            }
+            
+            .page-hero .hero-image {
+                padding: 0;
+            }
+            
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
